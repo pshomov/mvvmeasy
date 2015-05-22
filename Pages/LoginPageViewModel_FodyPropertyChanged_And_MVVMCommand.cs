@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMEasy.Pages
 {
-    public class LoginPageViewModel_FodyPropertyChanged : INotifyPropertyChanged
+    public class LoginPageViewModel_FodyPropertyChanged_And_MVVMCommand : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public LoginPageViewModel_FodyPropertyChanged ()
+        public LoginPageViewModel_FodyPropertyChanged_And_MVVMCommand ()
         {
             ErrorMessage = "";
             LoginInProgress = false;
