@@ -12,6 +12,7 @@ namespace MVVMEasy
             // The root page of your application
             MainPage = new LoginView(){BindingContext = new LoginPageViewModel_Prism()};
             MainPage = new LoginView(){BindingContext = new LoginPageViewModel_FodyPropertyChanged_And_MVVMCommand()};
+            MainPage = new LoginView(){BindingContext = new LoginPageViewModel_FodyPropertyChanged()};
         }
 
         protected override void OnStart ()

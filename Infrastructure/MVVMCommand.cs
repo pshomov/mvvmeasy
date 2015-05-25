@@ -14,21 +14,21 @@ namespace MVVMEasy
 
             if (member == null)
                 throw new ArgumentException(string.Format(
-                    "Expression '{0}' refers to a method, not a property.",
+                    "Expression '{0}' should be a property.",
                     propExpression.ToString()));
             if (expression == null)
                 throw new ArgumentException(string.Format(
                     "Expression '{0}' should be a constant expression",
                     propExpression.ToString()));
-            var host = (INotifyPropertyChanged)expression.Value;
+            var viewModel = (INotifyPropertyChanged)expression.Value;
             PropertyInfo propInfo = member.Member as PropertyInfo;
             if (propInfo == null)
                 throw new ArgumentException(string.Format(
                     "Expression '{0}' refers to a field, not a property.",
                     propExpression.ToString()));
-            var Prop = propInfo.Name;
-            host.PropertyChanged += (sender, e) => {
-                if (e.PropertyName == Prop) {
+            var propertyName = propInfo.Name;
+            viewModel.PropertyChanged += (sender, e) => {
+                if (e.PropertyName == propertyName) {
                     this.ChangeCanExecute();
                 };
             };
